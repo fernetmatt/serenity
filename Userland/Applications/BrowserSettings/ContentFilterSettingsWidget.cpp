@@ -134,7 +134,7 @@ ContentFilterSettingsWidget::ContentFilterSettingsWidget()
             m_domain_list_model->delete_domain(m_domain_list_view->selection().first().row());
             set_modified(true);
         }
-    });
+    }).release_value_but_fixme_should_propagate_errors();
     m_entry_context_menu = GUI::Menu::construct();
     m_entry_context_menu->add_action(delete_action);
 

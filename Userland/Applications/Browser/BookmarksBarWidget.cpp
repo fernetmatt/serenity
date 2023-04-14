@@ -158,7 +158,8 @@ BookmarksBarWidget::BookmarksBarWidget(DeprecatedString const& bookmarks_file, b
         [this](auto&) {
             remove_bookmark(m_context_menu_url);
         },
-        this));
+        this)
+                                   .release_value_but_fixme_should_propagate_errors());
 
     Vector<GUI::JsonArrayModel::FieldSpec> fields;
     fields.empend("title", "Title", Gfx::TextAlignment::CenterLeft);
